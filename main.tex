@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{pgffor}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{svg}
+\begin{document}
+\title{seL4 Core Platform Verification Documentation}
+\maketitle
+\section{Introduction}
+TODO 
+
+
+\section{Verification of Function Calls}
+TODO
+
+
+\section{Verification of global variables}
+
+\subsection{Challenges}
+
+\subsubsection{ELF patched variables}
+In a deployment of some instance of the core platform, there maybe some variables that are only resolved after the binary is built. The sel4cp tool resolves the values of these variables via 
+ELF patching. Unfortunately this represents a mismatch between what the C parser assumes and what the binary actually represents, therefore reasoning about such variables in the C code is nonsensical.
+In order to illustrate this point, we will examine the following example of C code. 
+
+\lstinputlisting[language=C]{./code/global_patched.c}
+
+
+\end{document}
